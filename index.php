@@ -12,44 +12,14 @@
 <body>
     <h1>Mapa</h1>
     <div class="map-container">
-        <span class="overlay">X</span>
+    <span class="overlay">X</span>
         <?php
-        // $host = 'localhost';
-        // $username = 'root';
-        // $password = '';
-        // $database = 'deca_23_BDTSS_99';
+        $numbers = range(0, 99);
 
-        $host = 'labmm.clients.ua.pt';
-        $username = 'deca_23_BDTSS_99_web';
-        $password = 'CaM3D26d';
-        $database = 'deca_23_bdtss_99';
-
-        $connection = mysqli_connect($host, $username, $password, $database);
-
-        $query = "SELECT `order` FROM `tiles`";
-        $result = mysqli_query($connection, $query);
-
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-            exit();
+        foreach ($numbers as $number) {
+            $imageName = $number . ".png";
+            echo "<img src='imageonline/$imageName' alt='Image $number'>";
         }
-
-        if ($result) {
-            while ($row = $result->fetch_object()) {
-                $number = $row->order;
-                $imageName = '0' . $number . ".png";
-                echo "<img src=\"imageonline/$imageName\" alt=\"Image\">";
-            }
-        } else {
-            echo "Error retrieving image order from the database: " . mysqli_error($connection);
-        }
-
-        // $numbers = range(0, 99);
-
-        // foreach ($numbers as $number) {
-        //     $imageName = '0' . $number . ".png";
-        //     echo "<img src='imageonline/$imageName' alt='Image $number'>";
-        // }
         ?>
     </div>
 </body>
