@@ -10,11 +10,14 @@
 </head>
 
 <body>
-    <h1>Mapa</h1>
+    <h1>Mapa DeCA (CCCI)</h1>
+    <p>Cria o mapa do DeCA, recorrendo à tabela tiles da BD. Depois, descobre as coordenadas da tua equipa e posiciona o X.</p>
     <div class="map-container">
     <span class="overlay">X</span>
         <?php
         $numbers = range(0, 99);
+
+    
 
         foreach ($numbers as $number) {
             $imageName = $number . ".png";
